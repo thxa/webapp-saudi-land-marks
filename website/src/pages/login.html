@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Saudi Land Marks</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/style-rtl.css">
+</head>
+<body>
+	<header>
+		<div class="inner-header">
+			<div class="left-header">
+				<div class="header-title">Saudi Land Marks</div>
+			</div>
+
+			<img class="center-header" src="../images/Icons/tree.png">
+
+			<div class="right-header">
+				<div class="header-title">معالم السعودية</div>
+			</div>
+		</div>
+	</header>
+
+
+	<button id="btnlanguage" onclick="lang('en')">English</button>
+
+	<nav>
+		<div class="base">
+			<a id="home" href="../index.html">الصفحة الرئيسيه</a>
+			<a id="account" class="active" href="login.html">حسابي</a>
+			<a id="rules" href="rules.html">شروط و احكام</a>
+			<a id="goals" href="goals.html">أهداف</a>
+			<a id="about" href="about.html">من نحن</a>
+		</div>
+	</nav>
+
+	<main>
+		<form action="" class="login-container">
+			<div>
+				<fieldset>
+					<legend>معلومات الدخول</legend>
+
+					<label for="email"> الايميل:</label>
+					<input class="" type="text" name="email" id="email" pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})$/" required>
+					
+					<label for="password">كلمة المرور:</label>
+					<input class="" type="text" name="password" id="password">
+				</fieldset>
+				<button class="btn">دخول</button>
+			</div>				
+		</form>
+		
+		<a href="./signup.html">هل انت مستخدم جديد؟ أنشئ حسابك</a>
+	</main>
+
+	<footer>
+		<img src="../images/Icons/city.png">
+	</footer>
+</body>
+</html>

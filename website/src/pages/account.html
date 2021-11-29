@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Saudi Land Marks</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/style-rtl.css">
+</head>
+<body>
+	<header>
+		<div class="inner-header">
+			<div class="left-header">
+				<div class="header-title">Saudi Land Marks</div>
+			</div>
+
+			<img class="center-header" src="../images/Icons/tree.png">
+
+			<div class="right-header">
+				<div class="header-title">معالم السعودية</div>			 
+			</div>
+		</div>
+	</header>
+
+	<nav>
+		<div class="base">
+			<a id="home" href="../index.html">الصفحة الرئيسيه</a>
+			<a id="account" class="active" href="login.html">حسابي</a>
+			<a id="rules" href="rules.html">شروط و احكام</a>
+			<a id="goals" href="goals.html">أهداف</a>
+			<a id="about" href="about.html">من نحن</a>
+		</div>
+	</nav>
+
+	<button id="btnlanguage" onclick="lang('en')">English</button>
+
+	<main>
+		<div class="">
+			<h1 id="username">:أسم المستخدم</h1>
+			<div>
+				<p></p>
+			</div>
+
+		</div>
+
+		<div id="landmarks" class="landmark-list"></div>
+	</main>
+
+	<footer>
+		<img src="../images/Icons/city.png">
+	</footer>
+</body>
+<script src="../js/language.js"></script>
+<script src="../js/landmark.js"></script>
+<script>
+	
+	var data = document.getElementById("landmarks");
+	for (let i = 0; i < 8; i++)
+	{
+		landmarks.pop();
+	}
+	landmarks.forEach(landmark => {
+
+		let a = document.createElement("a");
+		let img = document.createElement("img");
+		let div = document.createElement("div");
+
+		a.href = `../${landmark.path}`;
+		img.src = "";//`../${landmark.photo}`;
+		a.appendChild(img);
+		div.className = "landmark";
+		div.appendChild(a);
+		data.appendChild(div);
+	});
+</script>
+</html>

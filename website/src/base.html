@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %} Saudi Land Marks{% endblock %}</title>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link id="rtl" rel="stylesheet" href="{% static 'css/style-rtl.css' %}">
+</head>
+
+<body>
+	<header id="header">
+		<div class="inner-header">
+			<div class="left-header">
+				<div class="header-title">Saudi Land Marks</div>
+			</div>
+
+			<img class="center-header" src="{% static 'images/Icons/tree.png' %}">
+			
+			<div class="right-header">
+				<div class="header-title">معالم السعودية</div>
+			</div>
+		</div>
+	</header>
+
+    <button id="btnlanguage">English</button>
+
+    <nav>
+		<div class="base">	
+			{% block navbar %}	
+            <a id="home" class="active" href="/">الصفحة الرئيسيه</a>
+            <a id="account" href="/accounts/login/">حسابي</a>
+            <a id="rules" href="/rules/">شروط و احكام</a>
+            <a id="goals" href="/goals/">أهداف</a>
+            <a id="about" href="/about/">من نحن</a>
+            {% endblock %}
+		</div>
+	</nav>
+
+	<main>
+        {% block main %}{% endblock %}
+	</main>
+
+	
+	<footer>
+		<img src="{% static 'images/Icons/city.png' %}" alt="">
+	</footer>
+    <script src="{% static 'js/language.js' %}"></script>
+</body>
+</html>

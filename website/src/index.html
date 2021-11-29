@@ -1,0 +1,13 @@
+{%  extends 'base.html' %}
+{% block main %}
+	<div id="landmarks" class="landmark-list">
+		{% for landmark in landmarks %}
+		<div class="landmark">
+			<a href="{{ landmark.get_absolute_url }}">
+				<img src="{{ landmark.photo_url }}" alt="">
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+
+{% endblock %}

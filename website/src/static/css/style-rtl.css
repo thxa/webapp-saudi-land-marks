@@ -1,0 +1,51 @@
+@import url(./fonts.css);
+*
+{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    text-decoration: none;
+    color: #024001;
+    font-family: "Noto Sans Arabic";
+    border: none;
+}
+
+html, body
+{
+    height: 100%;
+    background-color:  #e8f7e2;
+    direction: rtl;
+}
+
+nav
+{
+    right: 10px;
+}
+
+main
+{
+    margin: 50px 270px 0px 0px;
+}
+
+.landmark-content h1
+{
+    text-align: center;
+    padding: 5px 0px 0px 25%;
+}
+
+.landmark-content p
+{
+    margin: 0px;
+    padding: 5px 0px 0px 25%;
+}
+
+#language
+{
+    position: absolute;
+    width: 50px;
+    top: 100px;
+    left: 0px;
+    right: 30px;
+    
+    background-color: rgba(0, 255, 0, 0.1);
+}
