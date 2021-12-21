@@ -1,8 +1,11 @@
+document.getElementsById("alerts").remove(document.getElementsById(("alerts").children));
+
 function validateRegisterForm()
 {
+
     var registerFormObj = document.getElementById("registerForm");
-    var firstName = registerFormObj.firstName.value;
-    var lastName = registerFormObj.lastName.value;
+    var firstName = registerFormObj.first_name.value;
+    var lastName = registerFormObj.last_name.value;
     var email = registerFormObj.email.value;
     var everyThingsOK = true;
 
@@ -30,9 +33,6 @@ function validateRegisterForm()
         if (registerFormObj.email.checked)
             alert("Warning: The E-mail feature is currently not supported.");
 
-        if (registerFormObj.phoneNumber.checked)
-            alert("Warning: The Phone feature is currently not supported.");
-
         alert("Your request has been submitted successfully.\n Thank you!");
         return true;
     }
@@ -44,6 +44,5 @@ function validateEmail(email) { return (email.search(/^\w+([\.-]?\w+)*@\w+([\.-]
 
 function printalert(text)
 {
-
     alerts.append("<p>Hello, </p>");
 }

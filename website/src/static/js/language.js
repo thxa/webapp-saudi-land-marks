@@ -1,3 +1,52 @@
+// class Language
+// {
+//     button = document.getElementById("btnlanguage");
+//     constructor(this, languageName, shortName, words = {}, nextLanguage)
+//     {
+//         this.languageName = languageName;
+//         this.shortName = shortName;
+//         this.words = words;
+//         this.nextLanguage = nextLanguage;
+        
+//     }
+//     set(this)
+//     {
+//         localStorage.setItem("language", this.shortName);
+//         this.button.onclick = function () {  };
+//     }
+//     get(this)
+//     {
+
+//     }
+//     style(this){}
+
+// }
+
+// class Left extends Language // Any language start typing from left to right
+// {
+//     style(this)
+//     {
+//         if (document.getElementById("rtl")) document.getElementById("rtl").remove();    
+//     }
+
+// }
+
+// class Right extends Language // Any language start typing from left to right
+// {
+//     style(this)
+//     {
+//         if (!document.getElementById("rtl")) 
+//         {
+//             let rtl = document.createElement("link");
+//             rtl.id = "rtl";
+//             rtl.href = "/static/css/style-rtl.css";
+//             rtl.rel = "stylesheet";
+//             document.getElementsByTagName("head")[0].appendChild(rtl);
+//         }
+//     }
+// }
+
+
 var language = {
     ar: {
 
@@ -26,9 +75,12 @@ var language = {
         ],
         placeName: "المكان",
         cityName: "المدينة",
+        login: "تسجيل الدخول",
+        logout: "تسجيل الخروج",
+
     },
     en: {
-        
+    
         btnlanguage: "عربي",
         home: "Home",
         about: "About",
@@ -51,9 +103,11 @@ var language = {
         "It is prohibited to represent an institution or organization without the user being authorized to such representation",
         "It is prohibited to upload content that harm the intellectual property of their owners and falls within the theft",
         "The owner of the site has the right to delete your content or personal account when breaching any of the above terms and conditions",
-    ],
-    placeName: "Place",
-    cityName: "City",
+        ],
+        placeName: "Place",
+        cityName: "City",
+        login: "Login",
+        logout: "Logout"
 
 
     }
@@ -113,7 +167,6 @@ function changeLanguage(language=language.ar)
 
         let element = document.getElementById(key);
         
-
         if (element.id == "rule")
         {
             let index = 0;
@@ -128,11 +181,3 @@ function changeLanguage(language=language.ar)
 }
 
 changeLanguage(getLanguage());
-
-
-
-
-
-
-
-

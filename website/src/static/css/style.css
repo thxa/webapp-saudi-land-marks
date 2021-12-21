@@ -11,12 +11,14 @@
 
 }
 
+/* BASE Layout which any page will exists start*/
 html, body
 {
     height: 100%;
     background-color:  #e8f7e2;
 }
 
+/* HEADER START */
 header
 {
     width: 100%;
@@ -71,6 +73,339 @@ header
     font-size: 32px;
     font-weight: bold;
 }
+/* HEADER END */
+
+/* BUTTON LANGUAGE START */
+#btnlanguage
+{
+    position: absolute;
+    width: 50px;
+    top: 100px;
+    left: 30px;
+    background-color: rgba(0, 255, 0, 0.1);
+}
+/* BUTTON LANGUAGE END */
+
+/* NAVBAR START */
+nav
+{
+    position: absolute;
+    width: 240px;
+    top: 140px;
+    left: 10px;
+}
+
+
+nav .base
+{
+    padding: 3px;
+    background-color: #024000;
+}
+
+nav .base a,
+nav .base a:hover
+{
+
+    display: block;
+    margin: 10px 0px;
+    padding: 4px 0px;
+    text-align: center;
+    border: #09FF00 solid;
+    /* border-radius: 10px; */
+    background-color: #afff8c;
+    color: #008000;
+}
+
+nav .base a:hover,
+nav .base .active
+{
+    border: #09FF00  dashed;
+}
+/* NAVBAR END */
+
+/* MAIN START */
+main
+{
+    margin: 50px 0px 0px 270px;
+}
+
+main ul
+{
+    list-style: inside;
+}
+
+main ul li
+{
+    margin: 0px 30px;
+    font-size: 32px;
+    list-style: circle;
+    color: #024001;
+}
+
+main p
+{
+    margin: 0px 30px;
+    font-size: 32px;
+    color: #024001;
+}
+
+/* MAIN END */
+
+/* FOOTER START */
+
+footer
+{
+    margin-top: 120px;
+    width: 100%;
+    height: 200px;
+}
+footer img
+{
+    width: 100%;
+    height: 200px;
+}
+/* FOOTER END */
+
+/* BASE Layout end */
+
+/* Any Extra Layout */
+/* LANDMARK CONTAINER START */
+.landmark-list
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.c-5px
+{
+    margin: 30px 5px 0px 0px;
+}
+
+.landmark-list .landmark,
+.landmark-list .landmark:hover
+{
+    border: 2px #ccc dashed;
+    padding: 3px;
+    width: 25%;
+    height: 200px;
+}
+
+.landmark-list .landmark:hover
+{
+    border: 2px #ccc solid;
+    box-shadow: 3px 3px 3px #ccc;
+}
+
+.landmark-list p
+{
+    margin: 0 auto;
+    font-size: 25px;
+}
+
+.landmark-list .landmark a img
+{
+    width: 100%;
+    height: 100%;
+}
+
+.card-cards-container,
+.container
+{
+    display: flex;
+    /* gap: 1rem; */
+}
+.card 
+{
+    width: 70%;
+    height: 20%;
+}
+
+.card .card-header
+{
+    padding: 10px;
+    margin: 10px 10%;
+    border: 3px green dashed;
+    background-color: #afff8e;
+}
+
+.card .card-container
+{
+    width: 80%;
+    height: 100%;
+    margin: 30px 10%;
+    padding: 0;
+    border: 3px green dashed;
+    background-color: #e6e6e6;
+}
+
+
+#placeName::after,
+#cityName::after
+{
+    content: "/ ";
+}
+
+
+.card .card-container .image-container
+{
+    border: 3px green dotted;
+    margin: 10px;
+    width: 97%;
+    height: 100%;
+}
+
+.card .card-container .image-container img
+{
+    width: 100%;
+    height: 100%;
+}
+
+.card .card-container button
+{
+    margin: 0px 10px 0px 0px;
+    border: none;
+    background-color: #e6e6e6;
+
+}
+
+.card .card-container button img
+{
+    width: 20px;
+    height: 20px;
+
+}
+
+.landmark-content
+{
+    width: 100%;
+}
+
+.landmark-content h1
+{
+    text-align: center;
+}
+
+.landmark-content p
+{
+    font-size: 20px;
+}
+
+
+/* LANDMARK CONTAINER END */
+
+
+
+/* FORMS START */
+.form-container
+{
+    display: block;
+    width: 500px;
+    padding: 0px 20% 0px 20%;
+}
+
+.form-container fieldset legend
+{
+    text-align: center;
+    width: 100%;
+}
+
+.form-container a
+{
+    text-decoration: underline;
+}
+
+
+.form-container input[type=text],
+.form-container input[type=password], 
+.form-container input[type=email],
+.form-container input[type=url],
+.form-container textarea
+/* ,.login-container input:focus */
+{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.form-container textarea
+{
+    width: 100%;
+    height: 100%;
+}
+
+.form-container input:focus
+{
+    border: 1px solid green;
+    box-shadow: green 1px 1px 1px;
+}
+
+.btn 
+{
+    width: 100%;
+    margin: 10px 25px;
+    padding: 10px;
+    border: 1px solid #008000;
+    background-color: #afff8c;
+    border-radius: 4px;
+}
+
+/* FORMS END */
+
+
+.rules
+{
+    width: 100%;
+}
+.rules .input
+{
+    width: 25%;
+}
+
+/* ACCOUNT STYLE START */
+.account
+{
+     display: table;
+}
+
+.account .avater
+{
+    display: table-cell;
+    vertical-align: middle;
+    border: #008000 solid 2px;
+    border-radius: 50%;
+    width: 10%;
+    z-index: 1;
+}
+.account .avater img
+{
+    width: 100%;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.account .username
+{
+    width: 80%;
+	display: table-cell;
+	vertical-align: middle;
+	padding: 0px 10px;
+	border: 2px dashed green;
+    font-size: 32px;
+    z-index: 0;
+}
+
+.account .edit
+{
+   width: 100%;
+   height: 100%;
+}
+/* ACCOUNT STYLE END */
+
+
+
+
 /* 
 .search-container
 {
@@ -111,319 +446,3 @@ header
     margin: 1%  ;
     padding: 14px;
   } */
-
-.container
-{
-    display: flex;
-    margin: 20px auto;
-}
-
-nav
-{
-    position: absolute;
-    width: 240px;
-    top: 140px;
-    left: 10px;
-}
-
-
-nav .base
-{
-    padding: 3px;
-    background-color: #024000;
-}
-
-nav .base a,
-nav .base a:hover
-{
-
-    display: block;
-    margin: 10px 0px;
-    padding: 4px 0px;
-    text-align: center;
-    border: #09FF00 solid;
-    border-radius: 10px;
-    background-color: #afff8c;
-    color: #008000;
-}
-
-nav .base a:hover,
-nav .base .active
-{
-    border: #09FF00  dashed;
-}
-
-main
-{
-    margin: 50px 0px 0px 270px;
-}
-
-main ul
-{
-    list-style: inside;
-}
-
-main ul li
-{
-    margin: 0px 30px;
-    font-size: 32px;
-    list-style: circle;
-    color: #024001;
-}
-
-main p
-{
-    margin: 0px 30px;
-    font-size: 32px;
-    color: #024001;
-}
-
-.landmark-list
-{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.landmark-list .landmark,
-.landmark-list .landmark:hover
-{
-    border: 2px #ccc dashed;
-    padding: 3px;
-    margin: 10px;
-    width: 25%;
-    height: 200px;
-}
-
-.landmark-list .landmark:hover
-{
-    border: 2px #ccc solid;
-    box-shadow: 3px 3px 3px #ccc;
-}
-
-.landmark-list p
-{
-    margin: 0 auto;
-    font-size: 25px;
-}
-
-.landmark-list .landmark a
-{
-    margin: 0px;
-}
-
-.landmark-list .landmark a img
-{
-    width: 100%;
-    height: 100%;
-}
-
-.card 
-{
-    margin: 0 1% 0 0;
-    width: 70%;
-    height: 20%;
-}
-
-.card .card-header
-{
-    padding: 10px;
-    margin: 10px 10%;
-    border: 3px green dashed;
-    background-color: #afff8e;
-}
-
-
-.card .card-container
-{
-    width: 80%;
-    height: 100%;
-    margin: 30px 10%;
-    padding: 0;
-    border: 3px green dashed;
-    background-color: #e6e6e6;
-}
-
-
-.card .card-container .image-container
-{
-    border: 3px green dotted;
-    margin: 10px;
-    width: 97%;
-    height: 100%;
-}
-
-.card .card-container .image-container img
-{
-    width: 100%;
-    height: 100%;
-}
-
-.card .card-container button
-{
-    margin: 0px 10px 0px 0px;
-    border: none;
-    background-color: #e6e6e6;
-
-}
-
-.card .card-container button img
-{
-    width: 20px;
-    height: 20px;
-
-}
-
-.login-container
-{
-    display: block;
-    width: 80%;
-    width: 500px;
-    padding: 0px 20% 0px 0px;
-}
-
-.login-container fieldset legend
-{
-    text-align: center;
-    width: 100%;
-}
-
-.login-container a
-{
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-}
-
-
-.landmark-content
-{
-    width: 100%;
-}
-
-.landmark-content h1
-{
-    padding: 10px 5px;
-}
-
-.landmark-content p
-{
-    font-size: 20px;
-    padding: 15px;
-}
-
-.login-container input[type=text],
-.login-container input[type=password], 
-.login-container input[type=email],
-.login-container input:focus
-{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.login-container input:focus
-{
-    border: 1px solid green;
-    box-shadow: green 1px 1px 1px;
-}
-
-main a,
-main a:hover
-{
-    margin: 0px 20%;
-}
-
-main a:hover
-{
-    text-decoration: underline;
-}
-
-footer
-{
-    margin-top: 120px;
-    width: 100%;
-    height: 200px;
-}
-footer img
-{
-    width: 100%;
-    height: 200px;
-}
-
-
-#signupForm
-{
-    width: 80%;
-}
-
-
-.rules
-{
-    width: 100%;
-}
-.rules .input
-{
-    width: 25%;
-}
-
-#rulesDisplay
-{
-    text-decoration: underline;
-
-}
-
-#signupForm .input[type=submit],
-#signupForm .input[type=submit]:active, 
-#signupForm .input[type=submit]:hover 
-{
-    width: 100%;
-    height: 100%;
-    margin: 0 10px;
-    padding: 10px;
-    border: 2px solid green;
-    background-color: #d2fcc0;
-}
-#signupForm .input[type=submit]:hover 
-{
-    border: 2px dashed green;
-    background-color: #d2fcc0;
-}
-
-.btn 
-{
-    width: 100%;
-    margin: 10px 25px;
-    padding: 10px;
-    border: 1px solid #008000;
-    background-color: #afff8c;
-    border-radius: 4px;
-}
-
-.landmark-content h1
-{
-    text-align: center;
-    padding: 0px 15% 0px 0px;
-}
-
-.landmark-content p
-{
-    padding: 5px 5%;
-    
-}
-
-#btnlanguage
-{
-    position: absolute;
-    width: 50px;
-    top: 100px;
-    left: 30px;
-    background-color: rgba(0, 255, 0, 0.1);
-}
-
-#placeName::after,
-#cityName::after
-{
-    content: "/ ";
-}

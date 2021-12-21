@@ -1,5 +1,11 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse_lazy
+
+# class Like(models.Model):
+#     liker = models.ForeignKey(User, related_name='likes', on_delete=models.CASCADE)
+#     liker = models.ForeignKey(Landmark, related_name='likes', on_delete=models.CASCADE)
+
 
 class Landmark(models.Model):
 
@@ -9,9 +15,10 @@ class Landmark(models.Model):
     about =  models.TextField()
     photo_url = models.URLField(blank=False, null=False)
     created = models.DateTimeField(auto_now_add=True)
+    
     # slug = models.SlugField(blank=True, unique=True)
-    # season = models.ForeignKey(Season, on_delete=models.CASCADE, related_name="episodes", null=True)
-    # owner = models.ForeignKey(User, related_name='landmarks', on_delete=models.CASCADE)
+
+    owner = models.ForeignKey(User, related_name='landmarks', on_delete=models.CASCADE)
 
 
     def __str__(self):
@@ -27,7 +34,7 @@ class Landmark(models.Model):
     #     super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return '/landmarks/%d/' % self.id
+        return '/landmarks/%d/' % self.pk
         # return reverse_lazy('landmarks', args=[self.id])
 
     class Meta:

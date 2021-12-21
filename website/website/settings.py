@@ -67,6 +67,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'website.wsgi.application'
 
 
@@ -120,7 +121,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # STATIC_ROOT = BASE_DIR / "src" / "static"
 STATICFILES_DIRS = [
-    "src/static"    
+    "src/static/"    
 
 ]
 

@@ -27,18 +27,6 @@ main
     margin: 50px 270px 0px 0px;
 }
 
-.landmark-content h1
-{
-    text-align: center;
-    padding: 5px 0px 0px 25%;
-}
-
-.landmark-content p
-{
-    margin: 0px;
-    padding: 5px 0px 0px 25%;
-}
-
 #language
 {
     position: absolute;
@@ -48,4 +36,9 @@ main
     right: 30px;
     
     background-color: rgba(0, 255, 0, 0.1);
+}
+
+.c-5px
+{
+    margin: 5px 0px 0px 5px;
 }

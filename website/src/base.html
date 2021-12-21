@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>{% block title %} Saudi Land Marks{% endblock %}</title>
+	<title> Saudi Land Marks - {% block title %}{% endblock %}</title>
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<link id="rtl" rel="stylesheet" href="{% static 'css/style-rtl.css' %}">
 </head>
@@ -29,9 +29,17 @@
 		<div class="base">	
 			{% block navbar %}	
             <a id="home" class="active" href="/">الصفحة الرئيسيه</a>
-            <a id="account" href="/accounts/login/">حسابي</a>
-            <a id="rules" href="/rules/">شروط و احكام</a>
-            <a id="goals" href="/goals/">أهداف</a>
+
+			{% block account %}	
+				{% if request.user.is_authenticated %}
+				<a id="account" href="/account/">حسابي</a>
+				{% else %}  
+				<a id="login" href="/account/login/">تسجيل الدخول</a>
+				{% endif %}
+            {% endblock %}
+
+            <a id="rules" href="/rules/">شروط و أحكام</a>
+            <a id="goals" href="/goals/">هدف الموقع</a>
             <a id="about" href="/about/">من نحن</a>
             {% endblock %}
 		</div>
@@ -46,5 +54,6 @@
 		<img src="{% static 'images/Icons/city.png' %}" alt="">
 	</footer>
     <script src="{% static 'js/language.js' %}"></script>
+	{% block js %}{% endblock %}
 </body>
 </html>

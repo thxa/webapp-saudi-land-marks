@@ -4,7 +4,7 @@
 		{% for landmark in landmarks %}
 		<div class="landmark">
 			<a href="{{ landmark.get_absolute_url }}">
-				<img src="{{ landmark.photo_url }}" alt="">
+				<img src="{{ landmark.photo_url }}" alt="{{ landmark.name }}">
 			</a>
 		</div>
 		{% endfor %}

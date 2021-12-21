@@ -1,88 +1,77 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Saudi Land Marks</title>
-	<link rel="stylesheet" href="../css/style.css">
-	<link rel="stylesheet" href="../css/style-rtl.css">
-</head>
-<body>
-	<header>
-		<div class="inner-header">
+{% extends "../base.html" %}
+{% load static %}
+{% block title %}Sign Up{% endblock %}
 
-			<div class="left-header">
-				<div class="header-title">Saudi Land Marks</div>
-			</div>
+{% block main %}
+<form method="post" action="/account/signup/" id="registerForm" class="form-container">
+	{% csrf_token %}
 
-			<img class="center-header" src="../images/Icons/tree.png">
 
-			<div class="right-header">
-				<div class="header-title">معالم السعودية</div>
-			</div>
+	<fieldset>
 
-		</div>
-	</header>
 
-	<button id="btnlanguage" onclick="lang('en')">English</button>
-
-	<nav>
-		<div class="base">
-			<a id="home" href="../index.html">الصفحة الرئيسيه</a>
-			<a id="account" class="active" href="login.html">حسابي</a>
-			<a id="rules" href="rules.html">شروط و احكام</a>
-			<a id="goals" href="goals.html">أهداف</a>
-			<a id="about" href="about.html">من نحن</a>
-		</div>
-	</nav>
-
-	<main>
-		<form action="" id="registerForm" class="login-container">
-			<fieldset>
-				<legend>معلومات شخصية</legend>
-				<label for="email"> الايميل:</label>
-				<input class="input" type="text" id="email" 
-				pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})$/" required>
-				
-				<label for="password">كلمة المرور:</label>
-				<input id="password" type="text" name="password" required>
+		<legend>معلومات شخصية</legend>
 		
-				<label for="firstName"> الاسم الاول:</label>
-				<input id="firstName" class="input" type="text" name="firstName" 
-				title="Initial capital, then lowercase and no spaces"
-				pattern="^[A-Z][a-z]*$" required>
+		{% for field in form %}
 
-				<label for="lastName"> الاسم الاخير:</label>
-				<input id="lastName" class="input" type="text" name="lastName"
-				title="Initial capital, then lowercase and no spaces"
-				pattern="^[A-Z][a-z]*$" required>
+		{{ field.label_tag  }}
+		<p>
+			{{ field }}
 
-				<!-- <label for="photo"> اضافة صورة شخصية:</label>
-				<input class="" type="file" name="photo" id="photo"> -->
-			</fieldset>
-			
-			<div class="rules">
-				<label for="acceptRules"> أوفق على كل الشروط و الأحكام</label>
-				<button onclick="displayRules()" id="rulesDisplay">الشروط</button>
-				<input type="checkbox" name="acceptRules" id="acceptRules">
-			</div>
+		</p>
+		
+		{% if field.help_text %}
+		{% endif %}
+
+
+		{% for error in field.errors %}
+			{{ error }}
+		{% endfor %}
+
+		{% endfor%}
+		<!-- <input id="firstName" class="input" type="text" name="first_name"
+		placeholder="الاسم الاول" 
+		title="Initial capital, then lowercase and no spaces"
+		pattern="^[A-Z][a-z]*$" required>
+
+		<input id="lastName" class="input" type="text" name="last_name"
+		placeholder="الاسم الاخير"
+		title="Initial capital, then lowercase and no spaces"
+		pattern="^[A-Z][a-z]*$" required>
+
+		<input id="username" name="username" class="input" type="text"  placeholder="أسم المستخدم" required>
+
+		<input class="input" type="text" id="email" placeholder="الايميل"
+		pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})$/" required>
+
+		<input id="password" name="password" type="password" name="password" placeholder="كلمة المرور" required>
+		<input id="password1" name="password1" type="password" name="password1" placeholder=" تأكيد كلمة المرور" required>
+		 -->
+		<!-- <label for="photo"> اضافة صورة شخصية:</label>
+		<input class="" type="file" name="photo" id="photo"> -->
+	</fieldset>
+	
+	<div class="rules">
+		<label for="acceptRules"> أوفق على كل الشروط و الأحكام</label>
+		<a href="/rules/" target="_blank">الشروط</a>
+		<input type="checkbox" name="acceptRules" class="input" id="acceptRules" required>
+	</div>
            
             
-			<button class="btn">تسجيل</button>
-        </form>
-		<div id="alerts">
-			<div>خطأ:</div>
+		<button class="btn">تسجيل</button>
+	</form>
+	<!-- <div id="alerts">
+		<div class="alert">
+			<div class="error">خطأ:</div>
 			<div style="padding: 5px; margin: 5px 15px; background-color: green;">
-				<p>adsa</p>
+				<p></p>
 			</div>
 		</div>
-    </main>
+	</div> -->
+{% endblock %}
 
-	<footer>
-		<img src="../images/Icons/city.png">
-	</footer>
-</body>
+{% block js %}
+	<script src="{% static 'js/signup.js' %}"></script>
+{% endblock %}
 
-<script src="../js/language.js"></script>
-	<script src="../js/displayRules.js"></script>
-	<script src="../js/signup.js"></script>
-</html>
+	
