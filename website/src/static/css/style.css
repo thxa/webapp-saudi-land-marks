@@ -241,7 +241,8 @@ footer img
 
 
 #placeName::after,
-#cityName::after
+#cityName::after,
+#landmarkName:after
 {
     content: "/ ";
 }

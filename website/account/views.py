@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout as user_logout
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.views import View
 
 def account(request):
@@ -16,50 +16,66 @@ def account(request):
 
 class LoginView(View):
     template_name = 'pages/login.html'
-
     def get(self, request, *args, **kwargs):
+        
+        if self.request.user.is_authenticated:
+            return HttpResponseRedirect('/account/')
         return render(request, self.template_name, {})
 
     def post(self, request, *args, **kwargs):
         
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return HttpResponseRedirect('/account/')
+        if not self.request.user.is_authenticated:
 
-        return render(request, self.template_name, {})
+            username = request.POST['username']
+            password = request.POST['password']
+
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return HttpResponseRedirect('/account/')
+
+            return render(request, self.template_name, {"error": "اسم المستخدم او كلمة المرور خطأ"})
+    
+        return HttpResponseRedirect('/account/')
+
 
 
 class SignUpView(View):
     template_name = 'pages/signup.html'
 
     def get(self, request, *args, **kwargs):
-        form = UserCreationForm()
-
-        return render(request, self.template_name, {"form": form})
+        return render(request, self.template_name, {})
 
     def post(self, request, *args, **kwargs):
         
-        # first_name = request.POST['first_name']
-        # last_name = request.POST['last_name']
-        # username = request.POST['username']
-        # email = request.POST['email']
+        errors = []
+        username = request.POST.get('username')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        email = request.POST.get('email') or ""
+        password = request.POST.get('password')
+        password1 = request.POST.get('password1')
 
-        # password = request.POST['password']
-        # password1 = request.POST['password1']
+        if User.objects.filter(username=username).exists():
+            errors.append("أسم المستخدم موجود مسبقا")
 
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password1')            
+        # if User.objects.exists(email=email):
+        #     errors["email"] = "الايميل موجود مسبقا"
+
+        if password != password1:
+            errors.append("كلمة المرور غير متطابقة")
+        
+        if errors == []:
+            user_creater = User(username=username, is_superuser=False,
+                    email=email, first_name=first_name, last_name=last_name, )
+            user_creater.set_password(raw_password=password1)
+            user_creater.save()
+
             user = authenticate(request, username=username, password=password)
             login(request, user)
             return HttpResponseRedirect('/account/')
 
-        return render(request, self.template_name, {"form": form})
+        return render(request, self.template_name, {"errors": errors})
 
 def logout(request):
     if request.user.is_authenticated:

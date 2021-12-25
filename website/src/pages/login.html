@@ -3,6 +3,8 @@
 {% block title %}Login{% endblock %}
 
 {% block main %}
+
+
 <form action="/account/login/" method="POST" class="form-container">{% csrf_token %}
 	<div>
 		<fieldset>
@@ -12,8 +14,17 @@
 			<input class="input" type="password" name="password" id="password" placeholder="كلمة المرور" required>
 		</fieldset>
 		<button class="btn">دخول</button>
-	</div>				
+	</div>
+	
+
 <a href="/account/signup/">هل انت مستخدم جديد؟ أنشئ حسابك</a>
+
+{% if error %}
+
+<div style="color: red;">{{error}}</div>
+
+{% endif %}
+
 </form>
 {% endblock %}
 

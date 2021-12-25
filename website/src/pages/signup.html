@@ -11,42 +11,27 @@
 
 
 		<legend>معلومات شخصية</legend>
-		
-		{% for field in form %}
 
-		{{ field.label_tag  }}
-		<p>
-			{{ field }}
-
-		</p>
-		
-		{% if field.help_text %}
-		{% endif %}
-
-
-		{% for error in field.errors %}
-			{{ error }}
-		{% endfor %}
-
-		{% endfor%}
-		<!-- <input id="firstName" class="input" type="text" name="first_name"
-		placeholder="الاسم الاول" 
-		title="Initial capital, then lowercase and no spaces"
-		pattern="^[A-Z][a-z]*$" required>
+		<input id="firstName" class="input" type="text" name="first_name"
+		placeholder="الاسم الاول" required>
 
 		<input id="lastName" class="input" type="text" name="last_name"
-		placeholder="الاسم الاخير"
-		title="Initial capital, then lowercase and no spaces"
-		pattern="^[A-Z][a-z]*$" required>
+		placeholder="الاسم الاخير" required>
 
-		<input id="username" name="username" class="input" type="text"  placeholder="أسم المستخدم" required>
-
+		<input id="username" name="username" class="input"
+		 	   type="text"  placeholder="أسم المستخدم" required>
+<!-- 
 		<input class="input" type="text" id="email" placeholder="الايميل"
-		pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})$/" required>
+		pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})$" required> -->
 
-		<input id="password" name="password" type="password" name="password" placeholder="كلمة المرور" required>
-		<input id="password1" name="password1" type="password" name="password1" placeholder=" تأكيد كلمة المرور" required>
-		 -->
+		<input id="password" name="password" type="password"
+			   name="password" placeholder="كلمة المرور" title="يجب ان يحتوي على اكثر من 8 احرف كبيرة و صغيرة ويحتوي على رموز و ارقام"
+			   pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$" required>
+
+		<input id="password1" name="password1" type="password"
+			   name="password1" placeholder=" تأكيد كلمة المرور" title="يجب ان يحتوي على اكثر من 8 احرف" 
+			   pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$" required>
+		
 		<!-- <label for="photo"> اضافة صورة شخصية:</label>
 		<input class="" type="file" name="photo" id="photo"> -->
 	</fieldset>
@@ -55,19 +40,15 @@
 		<label for="acceptRules"> أوفق على كل الشروط و الأحكام</label>
 		<a href="/rules/" target="_blank">الشروط</a>
 		<input type="checkbox" name="acceptRules" class="input" id="acceptRules" required>
-	</div>
-           
-            
+	</div>        
 		<button class="btn">تسجيل</button>
+	
+
+		{% for error in errors %}
+			<div style="color: red;">{{ error }}</div>
+		{% endfor %}
+	
 	</form>
-	<!-- <div id="alerts">
-		<div class="alert">
-			<div class="error">خطأ:</div>
-			<div style="padding: 5px; margin: 5px 15px; background-color: green;">
-				<p></p>
-			</div>
-		</div>
-	</div> -->
 {% endblock %}
 
 {% block js %}

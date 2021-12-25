@@ -1,52 +1,3 @@
-// class Language
-// {
-//     button = document.getElementById("btnlanguage");
-//     constructor(this, languageName, shortName, words = {}, nextLanguage)
-//     {
-//         this.languageName = languageName;
-//         this.shortName = shortName;
-//         this.words = words;
-//         this.nextLanguage = nextLanguage;
-        
-//     }
-//     set(this)
-//     {
-//         localStorage.setItem("language", this.shortName);
-//         this.button.onclick = function () {  };
-//     }
-//     get(this)
-//     {
-
-//     }
-//     style(this){}
-
-// }
-
-// class Left extends Language // Any language start typing from left to right
-// {
-//     style(this)
-//     {
-//         if (document.getElementById("rtl")) document.getElementById("rtl").remove();    
-//     }
-
-// }
-
-// class Right extends Language // Any language start typing from left to right
-// {
-//     style(this)
-//     {
-//         if (!document.getElementById("rtl")) 
-//         {
-//             let rtl = document.createElement("link");
-//             rtl.id = "rtl";
-//             rtl.href = "/static/css/style-rtl.css";
-//             rtl.rel = "stylesheet";
-//             document.getElementsByTagName("head")[0].appendChild(rtl);
-//         }
-//     }
-// }
-
-
 var language = {
     ar: {
 
@@ -74,6 +25,7 @@ var language = {
             "The owner of the site has the right to delete your content or personal account when breaching any of the above terms and conditions",
         ],
         placeName: "المكان",
+        landmarkName: "المعلم",
         cityName: "المدينة",
         login: "تسجيل الدخول",
         logout: "تسجيل الخروج",
@@ -106,6 +58,7 @@ var language = {
         ],
         placeName: "Place",
         cityName: "City",
+        landmarkName: "Landmark",
         login: "Login",
         logout: "Logout"
 
